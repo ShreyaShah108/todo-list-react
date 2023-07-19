@@ -14,6 +14,7 @@ function App() {
     setTodos(todos.filter((e)=>{
       return e!==todo;
     }))
+    localStorage.setItem("todos",JSON.stringify(todos));
   }
   const addTodo=(title, desc)=>{
     console.log("added")
@@ -31,25 +32,13 @@ function App() {
       desc: desc,
     }
     setTodos([...todos, myTodo]);
+
+    if(localStorage.getItem("todos")){
+      localStorage.setItem("todos",JSON.stringify(todos));
+    }
   }
 
-  const [todos, setTodos] = useState([
-    {
-      sno: 1,
-      title: "Study",
-      desc: "Frontend Task"
-    },
-    {
-      sno: 2,
-      title: "Eat",
-      desc: "Lunch Time"
-    },
-    {
-      sno: 3,
-      title: "Study",
-      desc: "Academics"
-    },
-  ])
+  const [todos, setTodos] = useState([])
 
   return (
     <>
