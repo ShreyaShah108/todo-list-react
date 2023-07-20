@@ -13,7 +13,7 @@ export const List = (props) => {
         return (
         <>
         <Todos todo = {todo} key={todo.sno} onDelete = {props.onDelete}/>
-        <hr></hr>
+        {/* <hr></hr> */}
         </>)
      })
      }

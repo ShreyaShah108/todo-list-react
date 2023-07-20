@@ -5,13 +5,17 @@ export const AddTodo = (props) => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
 
-    const submit = (e)=> {
+    const submit = (e) => {
         e.preventDefault();
         if (!title || !desc) {
-            alert("title or description cannot be blank")
+          alert("title or description cannot be blank");
+        } else {
+          props.addTodo(title, desc);
+          setTitle(""); // Use the setTitle function to update the title state.
+          setDesc(""); // Use the setDesc function to update the desc state.
         }
-        props.addTodo(title,desc);
-    }
+      };
+      
 
   return (
     <div className='container my-3'>
